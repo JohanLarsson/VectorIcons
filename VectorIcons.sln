@@ -1,0 +1,17 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VectorIcons", "VectorIcons\VectorIcons.csproj", "{53adb90c-426d-44c0-adf5-61084608bba8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53ADB90C-426D-44C0-ADF5-61084608BBA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53ADB90C-426D-44C0-ADF5-61084608BBA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53ADB90C-426D-44C0-ADF5-61084608BBA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53ADB90C-426D-44C0-ADF5-61084608BBA8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

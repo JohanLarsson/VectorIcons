@@ -36,6 +36,25 @@
 					</Canvas>
 				</Grid>
 			</TabItem>
+            <TabItem Header="Wrench">
+                <Grid>
+                    <Canvas>
+                        <Path Data="M10,125.04 L10.5,39.540001 C8.0655153,31.428622 -0.5,20.540059 -0.5,14.540001 0.5,5.5399903 9.1445755,2.181442 15.5,0.54000092 L11.5,9.5400009 23.5,15.540001 28.5,4.5400009 C31.775434,9.3193872 33.795953,14.790883 33.5,21.539956 L35.5,22.540001 33.5,28.539942 30.5,27.539944 C29.016706,33.086298 26.250377,37.508237 22.482589,41.052528 L25.482589,125.05253 C25.5,133.54003 9.5,134.54018 10,125.04 z"
+						 Fill="Black" Stroke="Black" RenderTransformOrigin="0.5,0.5" Canvas.Left="69" Canvas.Top="19">
+                        	<Path.RenderTransform>
+                        		<TransformGroup>
+                        			<ScaleTransform/>
+                        			<SkewTransform/>
+                        			<RotateTransform Angle="45"/>
+                        			<TranslateTransform/>
+                        		</TransformGroup>
+                        	</Path.RenderTransform>
+                        </Path>
+                        <Image Source="Images\Wrench.png" Opacity="0.5" d:IsLocked="True"/>
+                    </Canvas>
+                </Grid>
+
+            </TabItem>
 		</TabControl>
 
 	</Grid>

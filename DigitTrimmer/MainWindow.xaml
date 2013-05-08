@@ -1,0 +1,43 @@
+﻿<Window x:Class="DigitTrimmer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:digitTrimmer="clr-namespace:DigitTrimmer"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <digitTrimmer:TextConverter x:Key="TextConverter"/>
+    </Window.Resources>
+    <DockPanel>
+        <ToolBarPanel DockPanel.Dock="Top">
+            <StackPanel Orientation="Horizontal">
+                <StackPanel Orientation="Horizontal">
+                    <Label>Number of digits</Label>
+                    <TextBox x:Name="NumberOfDigitsTb" Width="20"></TextBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Label>Scalefactor</Label>
+                    <TextBox x:Name="ScaleFactorTb" Width="20"></TextBox>
+                </StackPanel>
+            </StackPanel>
+        </ToolBarPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <GroupBox Header="In">
+                <TextBox x:Name="InTb"></TextBox>
+            </GroupBox>
+            <GroupBox Header="Out" Grid.Row="1">
+                <TextBox x:Name="OutTb" IsReadOnly="True" >
+                    <TextBox.Text>
+                        <MultiBinding Converter="{StaticResource TextConverter}">
+                            <Binding ElementName="InTb" Path="Text"/>
+                            <Binding ElementName="NumberOfDigitsTb" Path="Text"/>
+                            <Binding ElementName="ScaleFactorTb" Path="Text"/>
+                        </MultiBinding>
+                    </TextBox.Text>
+                </TextBox>
+            </GroupBox>
+        </Grid>
+    </DockPanel>
+
+</Window>

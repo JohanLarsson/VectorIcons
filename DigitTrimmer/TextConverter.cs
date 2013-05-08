@@ -12,7 +12,7 @@ namespace DigitTrimmer
 {
     public class TextConverter : IMultiValueConverter
     {
-        private Regex _doubleRegex = new Regex(@"(-?\d+(?:\.\d+)?(?:E-?\d*)?)");
+        private Regex _doubleRegex = new Regex(@"(-?\d+(?:\.\d+)?(?:E-?\d+)?)");
 
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
@@ -21,7 +21,7 @@ namespace DigitTrimmer
                 return string.Empty;
             int digits = string.IsNullOrEmpty((string) values[1])
                              ? 0
-                             : int.Parse((string) values[2], CultureInfo.InvariantCulture);
+                             : int.Parse((string) values[1], CultureInfo.InvariantCulture);
             string format = digits == 0
                                 ? "0"
                                 : "0." + new string('#', digits);
@@ -34,7 +34,7 @@ namespace DigitTrimmer
                 {
                     double d = double.Parse(m.Value, CultureInfo.InvariantCulture);
                     d *= scale;
-                    return d.ToString(format);
+                    return d.ToString(format,CultureInfo.InvariantCulture);
                 });
             return replace;
         }

@@ -27,7 +27,7 @@
                 <TextBox x:Name="InTb"></TextBox>
             </GroupBox>
             <GroupBox Header="Out" Grid.Row="1">
-                <TextBox x:Name="OutTb" IsReadOnly="True" >
+                <TextBox x:Name="OutTb" IsReadOnly="True">
                     <TextBox.Text>
                         <MultiBinding Converter="{StaticResource TextConverter}">
                             <Binding ElementName="InTb" Path="Text"/>

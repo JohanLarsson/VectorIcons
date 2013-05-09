@@ -10,11 +10,11 @@
     <DockPanel x:Name="LayoutRoot">
         <StackPanel DockPanel.Dock="Top">
             <Label Content="Size"/>
-            <Slider x:Name="SizeSlider" Minimum="10" Maximum="400" Value="40"/>
+            <Slider x:Name="SizeSlider" Minimum="10" Maximum="400" Value="100"/>
         </StackPanel>
         <StackPanel DockPanel.Dock="Top">
             <Label Content="Rotation"/>
-            <Slider x:Name="RotationSlider" Minimum="0" Maximum="360" Value="45"/>
+            <Slider x:Name="RotationSlider" Minimum="0" Maximum="360"/>
         </StackPanel>
         <TabControl>
             <TabItem Header="Tools">

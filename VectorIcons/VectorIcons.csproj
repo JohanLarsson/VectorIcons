@@ -78,9 +78,6 @@
     <None Include="Application.ico">
       <Visible>false</Visible>
     </None>
-    <None Include="Images\w2wto51v.bmp">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\pipe-wrench.png" />

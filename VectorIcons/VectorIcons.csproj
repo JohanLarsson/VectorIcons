@@ -80,6 +80,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Gun.png" />
     <Resource Include="Hammer.png" />
     <Resource Include="Images\pipe-wrench.png" />
   </ItemGroup>

@@ -103,7 +103,13 @@
                                     </TransformGroup>
                                 </Path.RenderTransform>
                             </Path>
-                            <Image Source="Gun.png" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.435" Visibility="Hidden"/>
+                            <Image Source="Images\Gun.png" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.435" Visibility="Hidden"/>
+                        </Grid>
+                        <Grid x:Name="SaveGrid" Height="{Binding Value, ElementName=SizeSlider}" Width="{Binding Value, ElementName=SizeSlider}">
+                            <Path x:Name="Savepath" Data="M51,0 L64,0 64,23 51,23 z M0,0 L17,0 17,36 72,36 72,0 76.625,0 84,6.5 84,84 0,84 z" Fill="Black" Margin="8" Stretch="Fill" UseLayoutRounding="False"/>
+                        </Grid>
+                        <Grid x:Name="Save2Grid" Height="{Binding Value, ElementName=SizeSlider}" Width="{Binding Value, ElementName=SizeSlider}">
+                        	<Path x:Name="Save2Path" Data="M32,0L52,0 52,43 64,43 41.9375,64 20,43 32,43z M0,0L14,0 14,70 70,70 70,0 84,0 84,84 0,84z" Fill="Black" Margin="8" Stretch="Fill" UseLayoutRounding="False"/>
                         </Grid>
                     </WrapPanel>
                 </ScrollViewer>

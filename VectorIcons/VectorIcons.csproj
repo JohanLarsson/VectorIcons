@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ExpressionBlendVersion>4.0.20525.0</ExpressionBlendVersion>
+    <ExpressionBlendVersion>4.0.30816.0</ExpressionBlendVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{53ADB90C-426D-44C0-ADF5-61084608BBA8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -80,8 +80,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Gun.png" />
-    <Resource Include="Hammer.png" />
     <Resource Include="Images\pipe-wrench.png" />
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +87,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\Hammer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Gun.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath32)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

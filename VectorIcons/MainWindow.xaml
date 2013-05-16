@@ -63,7 +63,7 @@
                                     </TransformGroup>
                                 </Path.RenderTransform>
                             </Path>
-                            <Image Source="Hammer.png" Stretch="Fill" VerticalAlignment="Center" Opacity="0.465" Margin="-1,0,1,0" Visibility="Hidden"/>
+                            <Image Source="Images\Hammer.png" Stretch="Fill" VerticalAlignment="Center" Opacity="0.465" Margin="-1,0,1,0" Visibility="Hidden"/>
                         </Grid>
                         <Grid x:Name="Hammer2Grid" Height="{Binding Value, ElementName=SizeSlider}" Width="{Binding Value, ElementName=SizeSlider}">
                             <Path x:Name="Hammer2Path" Data="M5,44 L61,44 61,63 5,63 C2,63 0,62 0,59 L0,49 C0,47 2,44 5,44 z M75,0 C85,9 93,20 99,32 99,32 99,59 99,59 99,62 97,63 95,63 L94,64 94,71 99,77 99,84 93,91 C93,91 79,91 79,91 79,91 75,87 75,87 75,87 75,77 75,77 L80,71 80,63 71,63 71,44 78,44 C79,43 80,42 81,40 85,33 83,9 75,0 z" 
@@ -106,10 +106,30 @@
                             <Image Source="Images\Gun.png" Stretch="Fill" HorizontalAlignment="Center" VerticalAlignment="Center" Opacity="0.435" Visibility="Hidden"/>
                         </Grid>
                         <Grid x:Name="SaveGrid" Height="{Binding Value, ElementName=SizeSlider}" Width="{Binding Value, ElementName=SizeSlider}">
-                            <Path x:Name="Savepath" Data="M51,0 L64,0 64,23 51,23 z M0,0 L17,0 17,36 72,36 72,0 76.625,0 84,6.5 84,84 0,84 z" Fill="Black" Margin="8" Stretch="Fill" UseLayoutRounding="False"/>
+                            <Path x:Name="Savepath" Data="M51,0 L64,0 64,23 51,23 z M0,0 L17,0 17,36 72,36 72,0 76.625,0 84,6.5 84,84 0,84 z" 
+                                  Fill="Black" Margin="8" Stretch="Fill" UseLayoutRounding="False" RenderTransformOrigin="0.5,0.5">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="{Binding Value, ElementName=RotationSlider}"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
                         </Grid>
                         <Grid x:Name="Save2Grid" Height="{Binding Value, ElementName=SizeSlider}" Width="{Binding Value, ElementName=SizeSlider}">
-                        	<Path x:Name="Save2Path" Data="M32,0L52,0 52,43 64,43 41.9375,64 20,43 32,43z M0,0L14,0 14,70 70,70 70,0 84,0 84,84 0,84z" Fill="Black" Margin="8" Stretch="Fill" UseLayoutRounding="False"/>
+                            <Path x:Name="Save2Path" Data="M32,0L52,0 52,43 64,43 42,64 20,43 32,43z M0,0L14,0 14,70 70,70 70,0 84,0 84,84 0,84z" 
+                                  Fill="Black" Margin="8" Stretch="Fill" UseLayoutRounding="False" RenderTransformOrigin="0.5,0.5">
+                                <Path.RenderTransform>
+                                    <TransformGroup>
+                                        <ScaleTransform/>
+                                        <SkewTransform/>
+                                        <RotateTransform Angle="{Binding Value, ElementName=RotationSlider}"/>
+                                        <TranslateTransform/>
+                                    </TransformGroup>
+                                </Path.RenderTransform>
+                            </Path>
                         </Grid>
                     </WrapPanel>
                 </ScrollViewer>
@@ -185,12 +205,25 @@
             <TabItem Header="Animation">
                 <WrapPanel>
                     <Grid x:Name="PlayGrid" Height="{Binding Value, ElementName=SizeSlider}" Width="{Binding Value, ElementName=SizeSlider}">
-                        <Path Data="M12,10 L32,20 12,30 z M20,5 C12,5 5,12 5,20 5,28 12,35 20,35 28,35 35,28 35,20 35,12 28,5 20,5 z M20,0 C31,0 40,9 40,20 40,31 31,40 20,40 9,40 0,31 0,20 0,9 9,0 20,0 z" 
-						Fill="Black" Stretch="Uniform"/>
+                        <Path Data="M14.8,11.4 L30,18.991667 C30.8,19.333333 30.8,20.566667 30,20.991667 L14.22,28.89 C13.2,29.433333 12,29.2 12,27.65 L12,12.85 C12,10.8 13.2,10.4 14.8,11.4 z M20,5 C12,5 5,12 5,20 5,28 12,35 20,35 28,35 35,28 35,20 35,12 28,5 20,5 z M20,0 C31,0 40,9 40,20 40,31 31,40 20,40 9,40 0,31 0,20 0,9 9,0 20,0 z" 
+						Fill="Black" Stretch="Uniform" UseLayoutRounding="False"/>
                     </Grid>
                     <Grid x:Name="PauseGrid" Height="{Binding Value, ElementName=SizeSlider}" Width="{Binding Value, ElementName=SizeSlider}">
                         <Path Data="M25,11 C26,11 27,12 27,13 L27,27 C27,28 26,29 25,29 24,29 23,28 23,27 L23,13 C23,12 24,11 25,11 z M15,11 C16,11 17,12 17,13 L17,27 C17,28 16,29 15,29 14,29 13,28 13,27 L13,13 C13,12 14,11 15,11 z M20,5 C12,5 5,12 5,20 5,28 12,35 20,35 28,35 35,28 35,20 35,12 28,5 20,5 z M20,0 C31,0 40,9 40,20 40,31 31,40 20,40 9,40 0,31 0,20 0,9 9,0 20,0 z" 
 						Fill="Black" Stretch="Uniform" UseLayoutRounding="False"/>
+                    </Grid>
+                    <Grid x:Name="SkipBackGrid" Height="{Binding Value, ElementName=SizeSlider}" Width="{Binding Value, ElementName=SizeSlider}">
+                    	<Path x:Name="SkipBackPath" Data="M19.6,18.6 L19.6,18.6 z M28.1,12.9 C28.8,13.7 28.8,15 28.1,15.8 L23.8,20 28.1,24.2 C28.8,25 28.8,26.3 28.1,27.1 27.3,27.9 26,27.9 25.2,27.1 L19.6,21.4 C19.2,21 19,20.5 19,20 L19,20 19,20 C19,19.4 19.2,19 19.6,18.6 L25.2,12.9 C26,12.2 27.4,12.3 28.1,12.9 z M18.1,12.9 C18.8,13.7 18.8,15 18.1,15.8 L13.8,20 18.1,24.2 C18.8,25 18.8,26.3 18.1,27.1 17.3,27.9 16,27.9 15.2,27.1 L9.6,21.4 C9.2,21 9,20.5 9,20 L9,20 9,20 C9,19.5 9.2,19 9.6,18.6 L15.2,12.9 C16,12.2 17.4,12.3 18.1,12.9 z M20,5 C11.7,5 5,11.7 5,20 5,28.3 11.7,35 20,35 28.3,35 35,28.3 35,20 35,11.7 28.3,5 20,5 z M20,0 C31,0 40,9 40,20 40,31 31,40 20,40 9,40 0,31 0,20 0,9 9,0 20,0 z" 
+                    		Fill="Black" Stretch="Uniform" UseLayoutRounding="False" RenderTransformOrigin="0.5,0.5">
+                    		<Path.RenderTransform>
+                    			<TransformGroup>
+                    				<ScaleTransform/>
+                    				<SkewTransform/>
+                    				<RotateTransform Angle="0"/>
+                    				<TranslateTransform/>
+                    			</TransformGroup>
+                    		</Path.RenderTransform>
+                    	</Path>
                     </Grid>
                     <Grid x:Name="SkipForwardGrid" Height="{Binding Value, ElementName=SizeSlider}" Width="{Binding Value, ElementName=SizeSlider}">
                         <Path x:Name="SkipForwardPath" Data="M19.6,18.6 L19.6,18.6 z M28.1,12.9 C28.8,13.7 28.8,15 28.1,15.8 L23.8,20 28.1,24.2 C28.8,25 28.8,26.3 28.1,27.1 27.3,27.9 26,27.9 25.2,27.1 L19.6,21.4 C19.2,21 19,20.5 19,20 L19,20 19,20 C19,19.4 19.2,19 19.6,18.6 L25.2,12.9 C26,12.2 27.4,12.3 28.1,12.9 z M18.1,12.9 C18.8,13.7 18.8,15 18.1,15.8 L13.8,20 18.1,24.2 C18.8,25 18.8,26.3 18.1,27.1 17.3,27.9 16,27.9 15.2,27.1 L9.6,21.4 C9.2,21 9,20.5 9,20 L9,20 9,20 C9,19.5 9.2,19 9.6,18.6 L15.2,12.9 C16,12.2 17.4,12.3 18.1,12.9 z M20,5 C11.7,5 5,11.7 5,20 5,28.3 11.7,35 20,35 28.3,35 35,28.3 35,20 35,11.7 28.3,5 20,5 z M20,0 C31,0 40,9 40,20 40,31 31,40 20,40 9,40 0,31 0,20 0,9 9,0 20,0 z" 
@@ -200,19 +233,6 @@
                                     <ScaleTransform/>
                                     <SkewTransform/>
                                     <RotateTransform Angle="180"/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </Path.RenderTransform>
-                        </Path>
-                    </Grid>
-                    <Grid x:Name="SkipBackGrid" Height="{Binding Value, ElementName=SizeSlider}" Width="{Binding Value, ElementName=SizeSlider}">
-                        <Path x:Name="SkipBackPath" Data="M19.6,18.6 L19.6,18.6 z M28.1,12.9 C28.8,13.7 28.8,15 28.1,15.8 L23.8,20 28.1,24.2 C28.8,25 28.8,26.3 28.1,27.1 27.3,27.9 26,27.9 25.2,27.1 L19.6,21.4 C19.2,21 19,20.5 19,20 L19,20 19,20 C19,19.4 19.2,19 19.6,18.6 L25.2,12.9 C26,12.2 27.4,12.3 28.1,12.9 z M18.1,12.9 C18.8,13.7 18.8,15 18.1,15.8 L13.8,20 18.1,24.2 C18.8,25 18.8,26.3 18.1,27.1 17.3,27.9 16,27.9 15.2,27.1 L9.6,21.4 C9.2,21 9,20.5 9,20 L9,20 9,20 C9,19.5 9.2,19 9.6,18.6 L15.2,12.9 C16,12.2 17.4,12.3 18.1,12.9 z M20,5 C11.7,5 5,11.7 5,20 5,28.3 11.7,35 20,35 28.3,35 35,28.3 35,20 35,11.7 28.3,5 20,5 z M20,0 C31,0 40,9 40,20 40,31 31,40 20,40 9,40 0,31 0,20 0,9 9,0 20,0 z" 
-						Fill="Black" Stretch="Uniform" UseLayoutRounding="False" RenderTransformOrigin="0.5,0.5">
-                            <Path.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform/>
-                                    <SkewTransform/>
-                                    <RotateTransform Angle="0"/>
                                     <TranslateTransform/>
                                 </TransformGroup>
                             </Path.RenderTransform>
@@ -266,6 +286,46 @@
                     </Grid>
 
                 </WrapPanel>
+            </TabItem>
+            <TabItem x:Name="Arrows" Header="Arrows" Margin="-2,-2,-2,-1">
+            	<WrapPanel>
+            		<Grid x:Name="ArrowGrid" Height="{Binding Value, ElementName=SizeSlider}" Width="{Binding Value, ElementName=SizeSlider}">
+            			<Path Data="M59,0L84,25 59,50 59,35 0,35 0,15 59,15z" 
+            				Fill="Black" Stretch="Uniform"/>
+            		</Grid>
+            		<Grid x:Name="ArrowHeadGrid" Height="{Binding Value, ElementName=SizeSlider}" Width="{Binding Value, ElementName=SizeSlider}">
+            			<Path Data="M25,11 C26,11 27,12 27,13 L27,27 C27,28 26,29 25,29 24,29 23,28 23,27 L23,13 C23,12 24,11 25,11 z M15,11 C16,11 17,12 17,13 L17,27 C17,28 16,29 15,29 14,29 13,28 13,27 L13,13 C13,12 14,11 15,11 z M20,5 C12,5 5,12 5,20 5,28 12,35 20,35 28,35 35,28 35,20 35,12 28,5 20,5 z M20,0 C31,0 40,9 40,20 40,31 31,40 20,40 9,40 0,31 0,20 0,9 9,0 20,0 z" 
+            				Fill="Black" Stretch="Uniform" UseLayoutRounding="False"/>
+            		</Grid>
+            		<Grid x:Name="SkipForwardGrid1" Height="{Binding Value, ElementName=SizeSlider}" Width="{Binding Value, ElementName=SizeSlider}">
+            			<Path x:Name="SkipForwardPath1" Data="M19.6,18.6 L19.6,18.6 z M28.1,12.9 C28.8,13.7 28.8,15 28.1,15.8 L23.8,20 28.1,24.2 C28.8,25 28.8,26.3 28.1,27.1 27.3,27.9 26,27.9 25.2,27.1 L19.6,21.4 C19.2,21 19,20.5 19,20 L19,20 19,20 C19,19.4 19.2,19 19.6,18.6 L25.2,12.9 C26,12.2 27.4,12.3 28.1,12.9 z M18.1,12.9 C18.8,13.7 18.8,15 18.1,15.8 L13.8,20 18.1,24.2 C18.8,25 18.8,26.3 18.1,27.1 17.3,27.9 16,27.9 15.2,27.1 L9.6,21.4 C9.2,21 9,20.5 9,20 L9,20 9,20 C9,19.5 9.2,19 9.6,18.6 L15.2,12.9 C16,12.2 17.4,12.3 18.1,12.9 z M20,5 C11.7,5 5,11.7 5,20 5,28.3 11.7,35 20,35 28.3,35 35,28.3 35,20 35,11.7 28.3,5 20,5 z M20,0 C31,0 40,9 40,20 40,31 31,40 20,40 9,40 0,31 0,20 0,9 9,0 20,0 z" 
+            				Fill="Black" Stretch="Uniform" UseLayoutRounding="False" RenderTransformOrigin="0.5,0.5">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="180"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            		</Grid>
+            		<Grid x:Name="SkipBackGrid1" Height="{Binding Value, ElementName=SizeSlider}" Width="{Binding Value, ElementName=SizeSlider}">
+            			<Path x:Name="SkipBackPath1" Data="M19.6,18.6 L19.6,18.6 z M28.1,12.9 C28.8,13.7 28.8,15 28.1,15.8 L23.8,20 28.1,24.2 C28.8,25 28.8,26.3 28.1,27.1 27.3,27.9 26,27.9 25.2,27.1 L19.6,21.4 C19.2,21 19,20.5 19,20 L19,20 19,20 C19,19.4 19.2,19 19.6,18.6 L25.2,12.9 C26,12.2 27.4,12.3 28.1,12.9 z M18.1,12.9 C18.8,13.7 18.8,15 18.1,15.8 L13.8,20 18.1,24.2 C18.8,25 18.8,26.3 18.1,27.1 17.3,27.9 16,27.9 15.2,27.1 L9.6,21.4 C9.2,21 9,20.5 9,20 L9,20 9,20 C9,19.5 9.2,19 9.6,18.6 L15.2,12.9 C16,12.2 17.4,12.3 18.1,12.9 z M20,5 C11.7,5 5,11.7 5,20 5,28.3 11.7,35 20,35 28.3,35 35,28.3 35,20 35,11.7 28.3,5 20,5 z M20,0 C31,0 40,9 40,20 40,31 31,40 20,40 9,40 0,31 0,20 0,9 9,0 20,0 z" 
+            				Fill="Black" Stretch="Uniform" UseLayoutRounding="False" RenderTransformOrigin="0.5,0.5">
+            				<Path.RenderTransform>
+            					<TransformGroup>
+            						<ScaleTransform/>
+            						<SkewTransform/>
+            						<RotateTransform Angle="0"/>
+            						<TranslateTransform/>
+            					</TransformGroup>
+            				</Path.RenderTransform>
+            			</Path>
+            		</Grid>
+            		<Grid Height="40" Width="40"/>
+
+            	</WrapPanel>
             </TabItem>
         </TabControl>
 

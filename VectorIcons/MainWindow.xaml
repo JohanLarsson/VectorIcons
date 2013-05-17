@@ -281,11 +281,11 @@
                               RenderTransformOrigin="0.5,0.5" Fill="Black" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform"/>
                     </Grid>
                     <Grid x:Name="LightBulbGrid" Height="{Binding Value, ElementName=SizeSlider}" Width="{Binding Value, ElementName=SizeSlider}">
-                        <Path x:Name="LightBulbPath" Data="M3.3065199,6.5577502 L3.3065199,7.0502099 0,7.0502099 0,6.5577502 z M5.6099791,4.10221 L9.147479,7.3856401 8.1502494,8.4600295 4.612749,5.1766099 z M3.077239,0.99999994 C2.248809,0.99999994 1.577239,1.67158 1.577239,2.4999999 1.577239,3.3284301 2.248809,3.9999999 3.077239,3.9999999 3.9056692,3.9999999 4.577239,3.3284301 4.577239,2.4999999 4.577239,1.67158 3.9056692,0.99999994 3.077239,0.99999994 z M3.077239,0 C4.4579491,-6.3315369E-08 5.577239,1.1192901 5.577239,2.4999999 5.577239,3.8807101 4.4579491,4.9999999 3.077239,4.9999999 1.6965291,4.9999999 0.57723898,3.8807101 0.577239,2.4999999 0.57723898,1.1192901 1.6965291,-6.3315369E-08 3.077239,0 z"
+                        <Path x:Name="LightBulbPath" Data="M15,65L35,65 35,75C35,78,33,80,30,80L20,80C17,80,15,78,15,75z M4,39C2,35 0,30 0,25 0,11 11,0 25,0 39,0 50,11 50,25 50,30 48,35 46,39L35,58 15,58z"
                     		RenderTransformOrigin="0.5,0.5" Fill="Black" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform"/>
                     </Grid>
-                    <Grid x:Name="CrossGrid" Height="{Binding Value, ElementName=SizeSlider}" Width="{Binding Value, ElementName=SizeSlider}">
-                        <Path x:Name="CrossPath" Data="M50,0C53,0,55,2,55,4L55,45 96,45C98,45 100,47 100,50 100,53 98,55 96,55L55,55 55,96C55,98 53,100 50,100 47,100 45,98 45,96L45,55 4,55C2,55 0,53 0,50 0,47 2,45 4,45L45,45 45,4C45,2,47,0,50,0z"
+                    <Grid x:Name="SlimCrossGrid" Height="{Binding Value, ElementName=SizeSlider}" Width="{Binding Value, ElementName=SizeSlider}">
+                        <Path x:Name="SlimCrossPath" Data="M50,0C53,0,55,2,55,4L55,45 96,45C98,45 100,47 100,50 100,53 98,55 96,55L55,55 55,96C55,98 53,100 50,100 47,100 45,98 45,96L45,55 4,55C2,55 0,53 0,50 0,47 2,45 4,45L45,45 45,4C45,2,47,0,50,0z"
                     		RenderTransformOrigin="0.5,0.5" Fill="Black" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform">
                             <Path.RenderTransform>
                                 <TransformGroup>
@@ -296,6 +296,19 @@
                                 </TransformGroup>
                             </Path.RenderTransform>
                         </Path>
+                    </Grid>
+                    <Grid x:Name="CrossGrid" Height="{Binding Value, ElementName=SizeSlider}" Width="{Binding Value, ElementName=SizeSlider}">
+                    	<Path x:Name="CrossPath" Data="M50,0C56,0,60,4,60,10L60,40 90,40C96,40 100,44 100,50 100,56 96,60 90,60L60,60 60,90C60,96 56,100 50,100 44,100 40,96 40,90L40,60 10,60C4,60 0,56 0,50 0,44 4,40 10,40L40,40 40,10C40,4,44,0,50,0z"
+                    		RenderTransformOrigin="0.5,0.5" Fill="Black" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform">
+                    		<Path.RenderTransform>
+                    			<TransformGroup>
+                    				<ScaleTransform/>
+                    				<SkewTransform/>
+                    				<RotateTransform Angle="{Binding Value, ElementName=RotationSlider}"/>
+                    				<TranslateTransform/>
+                    			</TransformGroup>
+                    		</Path.RenderTransform>
+                    	</Path>
                     </Grid>
 
                 </WrapPanel>
@@ -315,8 +328,8 @@
                             </Path.RenderTransform>
                         </Path>
                     </Grid>
-                    <Grid x:Name="Arrow2Grid" Height="{Binding Value, ElementName=SizeSlider}" Width="{Binding Value, ElementName=SizeSlider}">
-                        <Path x:Name="Arrow2Path" Data="M55,0C57,0,58,1,59,2L79,21C81,24,81,28,79,30L59,50C57,52 53,52 51,50 49,48 49,43 51,41L60,32 6,32C3,32 0,29 0,26 0,22 3,20 6,20L60,20 51,10C49,8 49,4 51,2 52,1 53,0 55,0z" 
+                    <Grid x:Name="RoundArrowGrid" Height="{Binding Value, ElementName=SizeSlider}" Width="{Binding Value, ElementName=SizeSlider}">
+                        <Path x:Name="RoundArrowPath" Data="M55,0C57,0,58,1,59,2L79,21C81,24,81,28,79,30L59,50C57,52 53,52 51,50 49,48 49,43 51,41L60,32 6,32C3,32 0,29 0,26 0,22 3,20 6,20L60,20 51,10C49,8 49,4 51,2 52,1 53,0 55,0z" 
             				Fill="Black" Stretch="Uniform" UseLayoutRounding="False" RenderTransformOrigin="0.5,0.5">
                             <Path.RenderTransform>
                                 <TransformGroup>
@@ -341,7 +354,19 @@
                             </Path.RenderTransform>
                         </Path>
                     </Grid>
-                    <Grid Height="40" Width="40"/>
+                    <Grid x:Name="WhirlArrowGrid" Height="{Binding Value, ElementName=SizeSlider}" Width="{Binding Value, ElementName=SizeSlider}" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    	<Path x:Name="WhirlArrow" Data="M30,0C32,0 34,1 35,3 37,5 36,10 33,11L23,17 23,17C41,21 54,37 54,56 54,78 36,96 14,96 11,96 8,93 8,90 8,87 11,84 14,84 29,84 42,71 42,56 42,42 32,30 18,28L18,28 25,41C27,44 25,48 23,49 20,51 16,50 15,47L1,23C-1,20,0,16,3,15L27,1C28,0,29,0,30,0z" 
+						Fill="Black" Stretch="Uniform" RenderTransformOrigin="0.5,0.5">
+                    		                            <Path.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="{Binding Value, ElementName=RotationSlider}"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Path.RenderTransform>              	
+						</Path>
+                    </Grid>
 
                 </WrapPanel>
             </TabItem>

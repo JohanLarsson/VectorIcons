@@ -395,6 +395,7 @@
                             </Path.RenderTransform>
                         </Path>
                     </Grid>
+                  
                     <Grid x:Name="DoubleArrowGrid" Height="{Binding Value, ElementName=SizeSlider}" Width="{Binding Value, ElementName=SizeSlider}" VerticalAlignment="Center" HorizontalAlignment="Center">
                         <Path x:Name="DoubleArrowPath" Data="M0,5 L2,3 2,4 8,4 8,3 10,5 8,7 8,6 2,6 2,7 z"
                     		Fill="Black" Stretch="Uniform" RenderTransformOrigin="0.5,0.5">

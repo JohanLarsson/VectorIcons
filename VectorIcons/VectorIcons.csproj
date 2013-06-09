@@ -80,16 +80,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\pipe-wrench.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Wrench.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Hammer.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Images\Gun.png" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath32)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

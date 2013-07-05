@@ -66,6 +66,8 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="CustomShapes\Arc.cs" />
+    <Compile Include="CustomShapes\Arrow.cs" />
+    <Compile Include="CustomShapes\Class1.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

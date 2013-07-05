@@ -415,9 +415,9 @@
             </TabItem>
             <TabItem x:Name="Shapes" Header="Shape">
                 <WrapPanel>
-                    <Grid x:Name="Arc" Height="{Binding Value, ElementName=SizeSlider}" Width="{Binding Value, ElementName=SizeSlider}">
-                        <customShapes:Arc x:Name="ArcShape" CenterPoint="0,0" StartAngle="0" EndAngle="45" InnerRadius="40" OuterRadius="60" RenderTransformOrigin="0.5,0.5"
-            				Fill="Black" Stretch="Uniform">
+                    <Grid x:Name="ArcGrid" Height="{Binding Value, ElementName=SizeSlider}" Width="{Binding Value, ElementName=SizeSlider}">
+                        <customShapes:Arc x:Name="ArcShape" StartAngle="0" EndAngle="319" InnerRadius="20" OuterRadius="39" RenderTransformOrigin="0.5,0.5"
+            				Fill="Black" HorizontalAlignment="Center" VerticalAlignment="Center">
                             <customShapes:Arc.RenderTransform>
                                 <TransformGroup>
                                     <ScaleTransform/>
@@ -427,6 +427,32 @@
                                 </TransformGroup>
                             </customShapes:Arc.RenderTransform>
                         </customShapes:Arc> 
+                    </Grid>
+                    <Grid x:Name="ArowGrid" Height="{Binding Value, ElementName=SizeSlider}" Width="{Binding Value, ElementName=SizeSlider}">
+                        <customShapes:Arrow x:Name="Arrow"  RenderTransformOrigin="0.5,0.5"
+            				Fill="Black" HorizontalAlignment="Center" VerticalAlignment="Center" HeadWidth="44" Length="49" ShaftWidth="14">
+                            <customShapes:Arrow.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="{Binding Value, ElementName=RotationSlider}"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </customShapes:Arrow.RenderTransform>
+                        </customShapes:Arrow>
+                    </Grid>
+                    <Grid x:Name="RoundArowGrid" Height="{Binding Value, ElementName=SizeSlider}" Width="{Binding Value, ElementName=SizeSlider}">
+                        <customShapes:RoundArrow x:Name="RoundArrow"  RenderTransformOrigin="0.5,0.5"
+            				Fill="Black" HorizontalAlignment="Center" VerticalAlignment="Center" HeadWidth="43" Length="52" ShaftWidth="18" Radius="17">
+                            <customShapes:RoundArrow.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="{Binding Value, ElementName=RotationSlider}"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </customShapes:RoundArrow.RenderTransform>
+                        </customShapes:RoundArrow>
                     </Grid>
                 </WrapPanel>
             </TabItem>

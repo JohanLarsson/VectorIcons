@@ -11,16 +11,13 @@ namespace VectorIcons.CustomShapes
 {
     public class Arc : Shape
     {
-        public static readonly DependencyProperty CenterPointProperty = DependencyProperty.Register("CenterPoint", typeof(Point), typeof(Arc), new PropertyMetadata(default(Point), OnGeometryChanged));
-        [TypeConverter(typeof(PointConverter))]
-        public Point CenterPoint
+        static Arc()
         {
-            get { return (Point)GetValue(CenterPointProperty); }
-            set { SetValue(CenterPointProperty, value); }
+            Shape.StretchProperty.OverrideMetadata(typeof(Arc), (PropertyMetadata)new FrameworkPropertyMetadata((object)Stretch.None));
         }
 
         public static readonly DependencyProperty StartAngleProperty = DependencyProperty.Register("StartAngle", typeof(double), typeof(Arc), new PropertyMetadata(default(double), OnGeometryChanged));
-        [TypeConverter(typeof(LengthConverter))]
+        [TypeConverter(typeof(LengthConverter)), Category("Appearance"), Description("Angle counted from x axis positive counter clockwise")]
         public double StartAngle
         {
             get { return (double)GetValue(StartAngleProperty); }
@@ -28,7 +25,7 @@ namespace VectorIcons.CustomShapes
         }
 
         public static readonly DependencyProperty EndAngleProperty = DependencyProperty.Register("EndAngle", typeof(double), typeof(Arc), new PropertyMetadata(90.0, OnGeometryChanged));
-        [TypeConverter(typeof(LengthConverter))]
+        [TypeConverter(typeof(LengthConverter)), Category("Appearance"), Description("Angle counted from x axis positive counter clockwise")]
         public double EndAngle
         {
             get { return (double)GetValue(EndAngleProperty); }
@@ -36,7 +33,7 @@ namespace VectorIcons.CustomShapes
         }
 
         public static readonly DependencyProperty OuterRadiusProperty = DependencyProperty.Register("OuterRadius", typeof(double), typeof(Arc), new PropertyMetadata(10.0, OnGeometryChanged));
-        [TypeConverter(typeof(LengthConverter))]
+        [TypeConverter(typeof(LengthConverter)), Category("Appearance")]
         public double OuterRadius
         {
             get { return (double)GetValue(OuterRadiusProperty); }
@@ -44,7 +41,7 @@ namespace VectorIcons.CustomShapes
         }
 
         public static readonly DependencyProperty InnerRadiusProperty = DependencyProperty.Register("InnerRadius", typeof(double), typeof(Arc), new PropertyMetadata(8.0, OnGeometryChanged));
-        [TypeConverter(typeof(LengthConverter))]
+        [TypeConverter(typeof(LengthConverter)), Category("Appearance")]
         public double InnerRadius
         {
             get { return (double)GetValue(InnerRadiusProperty); }
@@ -64,13 +61,13 @@ namespace VectorIcons.CustomShapes
                 // Create a StreamGeometry for describing the shape
                 StreamGeometry geometry = new StreamGeometry();
                 geometry.FillRule = FillRule.EvenOdd;
-
+                var cp = new Point(OuterRadius, OuterRadius);
                 using (StreamGeometryContext context = geometry.Open())
                 {
-                    var ip = new Point(CenterPoint.X + InnerRadius, CenterPoint.Y);
-                    Point op = new Point(CenterPoint.X + OuterRadius, CenterPoint.Y);
-                    var minRot = new RotateTransform(StartAngle, CenterPoint.X, CenterPoint.Y);
-                    var maxRot = new RotateTransform(EndAngle, CenterPoint.X, CenterPoint.Y);
+                    var ip = new Point(cp.X + InnerRadius, cp.Y);
+                    Point op = new Point(cp.X + OuterRadius, cp.Y);
+                    var minRot = new RotateTransform(StartAngle, cp.X, cp.Y);
+                    var maxRot = new RotateTransform(EndAngle, cp.X, cp.Y);
                     var angle = StartAngle - EndAngle;
                     bool isLargeArc = Math.Abs(angle) > 180;
                     Point minOuter = minRot.Transform(op);
@@ -78,10 +75,10 @@ namespace VectorIcons.CustomShapes
                     Point maxOuter = maxRot.Transform(op);
                     Point maxInner = maxRot.Transform(ip);
                     context.BeginFigure(minInner, true, true);
-                    context.LineTo(minOuter, false, true);
-                    context.ArcTo(maxOuter, new Size(OuterRadius, OuterRadius), angle, isLargeArc, StartAngle < EndAngle ? SweepDirection.Clockwise : SweepDirection.Counterclockwise, false, true);
-                    context.LineTo(maxInner, false, true);
-                    context.ArcTo(minInner, new Size(InnerRadius, InnerRadius), angle, isLargeArc, StartAngle < EndAngle ? SweepDirection.Counterclockwise : SweepDirection.Clockwise, false, true);
+                    context.LineTo(minOuter, true, true);
+                    context.ArcTo(maxOuter, new Size(OuterRadius, OuterRadius), angle, isLargeArc, StartAngle < EndAngle ? SweepDirection.Clockwise : SweepDirection.Counterclockwise, true, true);
+                    context.LineTo(maxInner, true, true);
+                    context.ArcTo(minInner, new Size(InnerRadius, InnerRadius), angle, isLargeArc, StartAngle < EndAngle ? SweepDirection.Counterclockwise : SweepDirection.Clockwise, true, true);
                     context.Close();
                 }
 
@@ -90,6 +87,11 @@ namespace VectorIcons.CustomShapes
                 return geometry;
             }
         }
-    }
 
+        protected override Size MeasureOverride(Size constraint)
+        {
+            double num = 2 * (OuterRadius-StrokeThickness);
+            return new Size(num, num);
+        }
+    }
 }

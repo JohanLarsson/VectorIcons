@@ -65,9 +65,10 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Converters\MultiplyConverter.cs" />
     <Compile Include="CustomShapes\Arc.cs" />
     <Compile Include="CustomShapes\Arrow.cs" />
-    <Compile Include="CustomShapes\Class1.cs" />
+    <Compile Include="CustomShapes\RoundArrow.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>

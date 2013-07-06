@@ -61,7 +61,7 @@ namespace VectorIcons.CustomShapes
                 // Create a StreamGeometry for describing the shape
                 StreamGeometry geometry = new StreamGeometry();
                 geometry.FillRule = FillRule.EvenOdd;
-                var cp = new Point(OuterRadius, OuterRadius);
+                var cp = new Point(OuterRadius - StrokeThickness, OuterRadius - StrokeThickness);
                 using (StreamGeometryContext context = geometry.Open())
                 {
                     var ip = new Point(cp.X + InnerRadius, cp.Y);
@@ -93,5 +93,6 @@ namespace VectorIcons.CustomShapes
             double num = 2 * (OuterRadius-StrokeThickness);
             return new Size(num, num);
         }
+
     }
 }

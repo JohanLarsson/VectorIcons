@@ -1,19 +1,21 @@
-﻿using System;
-using System.Globalization;
-using System.Windows.Data;
-
-namespace VectorIcons.Converters
+﻿namespace VectorIcons.Converters
 {
+    using System;
+    using System.Globalization;
+    using System.Windows.Data;
+
     public class MultiplyConverter : IValueConverter
     {
+        public static readonly MultiplyConverter Default = new MultiplyConverter();
+
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var d = System.Convert.ToDouble(value);
-            double p = System.Convert.ToDouble(parameter);
+            var p = System.Convert.ToDouble(parameter);
             return d * p;
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        object IValueConverter.ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }

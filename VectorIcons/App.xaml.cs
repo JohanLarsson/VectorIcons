@@ -1,11 +1,8 @@
-﻿using System.Windows;
-
-namespace VectorIcons
+﻿namespace VectorIcons
 {
-	/// <summary>
-	/// Interaction logic for App.xaml
-	/// </summary>
-	public partial class App : Application
-	{
-	}
+    using System.Windows;
+
+    public partial class App : Application
+    {
+    }
 }

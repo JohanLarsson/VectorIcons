@@ -2,9 +2,6 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:digitTrimmer="clr-namespace:DigitTrimmer"
         Title="MainWindow" Height="350" Width="525">
-    <Window.Resources>
-        <digitTrimmer:TextConverter x:Key="TextConverter"/>
-    </Window.Resources>
     <DockPanel>
         <ToolBarPanel DockPanel.Dock="Top">
             <StackPanel Orientation="Horizontal">
@@ -29,7 +26,7 @@
             <GroupBox Header="Out" Grid.Row="1">
                 <TextBox x:Name="OutTb" IsReadOnly="True">
                     <TextBox.Text>
-                        <MultiBinding Converter="{StaticResource TextConverter}">
+                        <MultiBinding Converter="{x:Static digitTrimmer:TextConverter.Default}">
                             <Binding ElementName="InTb" Path="Text"/>
                             <Binding ElementName="NumberOfDigitsTb" Path="Text"/>
                             <Binding ElementName="ScaleFactorTb" Path="Text"/>

@@ -1,17 +1,12 @@
-﻿using System.Windows;
-
-namespace VectorIcons
+﻿namespace VectorIcons
 {
-	/// <summary>
-	/// Interaction logic for MainWindow.xaml
-	/// </summary>
-	public partial class MainWindow : Window
-	{
-		public MainWindow()
-		{
-			this.InitializeComponent();
+    using System.Windows;
 
-			// Insert code required on object creation below this point.
-		}
-	}
+    public partial class MainWindow : Window
+    {
+        public MainWindow()
+        {
+            this.InitializeComponent();
+        }
+    }
 }

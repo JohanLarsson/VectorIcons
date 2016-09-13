@@ -1,46 +1,54 @@
-﻿using System.ComponentModel;
-using System.Windows;
-using System.Windows.Media;
-using System.Windows.Shapes;
-
-namespace VectorIcons.CustomShapes
+﻿namespace VectorIcons.CustomShapes
 {
+    using System.ComponentModel;
+    using System.Windows;
+    using System.Windows.Media;
+    using System.Windows.Shapes;
+
     public class Arrow : Shape
     {
+        public static readonly DependencyProperty LengthProperty = DependencyProperty.Register(
+            "Length",
+            typeof(double),
+            typeof(Arrow),
+            new PropertyMetadata(10.0, OnGeometryChanged));
+
+        public static readonly DependencyProperty ShaftWidthProperty = DependencyProperty.Register(
+            "ShaftWidth",
+            typeof(double),
+            typeof(Arrow),
+            new PropertyMetadata(3.0, OnGeometryChanged));
+
+        public static readonly DependencyProperty HeadWidthProperty = DependencyProperty.Register(
+            "HeadWidth",
+            typeof(double),
+            typeof(Arrow),
+            new PropertyMetadata(6.0, OnGeometryChanged));
+
         static Arrow()
         {
-            StretchProperty.OverrideMetadata(typeof(Arrow), (PropertyMetadata)new FrameworkPropertyMetadata((object)Stretch.None));
+            StretchProperty.OverrideMetadata(typeof(Arrow), new FrameworkPropertyMetadata(Stretch.None));
         }
 
-        public static readonly DependencyProperty LengthProperty = DependencyProperty.Register("Length", typeof(double), typeof(Arrow), new PropertyMetadata(10.0, OnGeometryChanged));
         [Category("Appearance")]
         public double Length
         {
-            get { return (double) this.GetValue(LengthProperty); }
+            get { return (double)this.GetValue(LengthProperty); }
             set { this.SetValue(LengthProperty, value); }
         }
 
-        public static readonly DependencyProperty ShaftWidthProperty = DependencyProperty.Register("ShaftWidth", typeof(double), typeof(Arrow), new PropertyMetadata(3.0, OnGeometryChanged));
         [Category("Appearance")]
         public double ShaftWidth
         {
-            get { return (double) this.GetValue(ShaftWidthProperty); }
+            get { return (double)this.GetValue(ShaftWidthProperty); }
             set { this.SetValue(ShaftWidthProperty, value); }
         }
 
-        public static readonly DependencyProperty HeadWidthProperty =
-            DependencyProperty.Register("HeadWidth", typeof(double), typeof(Arrow), new PropertyMetadata(6.0, OnGeometryChanged));
         [Category("Appearance")]
         public double HeadWidth
         {
-            get { return (double) this.GetValue(HeadWidthProperty); }
+            get { return (double)this.GetValue(HeadWidthProperty); }
             set { this.SetValue(HeadWidthProperty, value); }
-        }
-
-        private static void OnGeometryChanged(DependencyObject d, DependencyPropertyChangedEventArgs ek)
-        {
-            Arrow arrow = (Arrow)d;
-            arrow.InvalidateVisual();
         }
 
         protected override Geometry DefiningGeometry
@@ -48,17 +56,16 @@ namespace VectorIcons.CustomShapes
             get
             {
                 // Create a StreamGeometry for describing the shape
-                StreamGeometry geometry = new StreamGeometry();
+                var geometry = new StreamGeometry();
                 geometry.FillRule = FillRule.EvenOdd;
 
-                using (StreamGeometryContext context = geometry.Open())
+                using (var context = geometry.Open())
                 {
-                    double y1 = this.HeadWidth / 2 - this.ShaftWidth / 2;
-                    double x1 = this.Length - this.HeadWidth / 2;
-                    double y2 = this.HeadWidth / 2 + this.ShaftWidth / 2;
-                    ScaleTransform scaleTransform;
-                    scaleTransform = this.Width *this.Height > 0
-                        ? new ScaleTransform(this.Width /this.Length, this.Height /this.HeadWidth)
+                    var y1 = (this.HeadWidth / 2) - (this.ShaftWidth / 2);
+                    var x1 = this.Length - (this.HeadWidth / 2);
+                    var y2 = (this.HeadWidth / 2) + (this.ShaftWidth / 2);
+                    var scaleTransform = this.Width * this.Height > 0
+                        ? new ScaleTransform(this.Width / this.Length, this.Height / this.HeadWidth)
                         : new ScaleTransform(1, 1);
                     var startPoint = scaleTransform.Transform(new Point(0, y1));
                     var p1 = scaleTransform.Transform(new Point(x1, y1));
@@ -84,5 +91,10 @@ namespace VectorIcons.CustomShapes
             }
         }
 
+        private static void OnGeometryChanged(DependencyObject d, DependencyPropertyChangedEventArgs ek)
+        {
+            var arrow = (Arrow)d;
+            arrow.InvalidateVisual();
+        }
     }
 }

@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows.Data;
-
-namespace DigitTrimmer
+﻿namespace DigitTrimmer
 {
+    using System;
+    using System.Globalization;
+    using System.Text.RegularExpressions;
+    using System.Windows.Data;
+
     public class TextConverter : IMultiValueConverter
     {
-        private Regex _doubleRegex = new Regex(@"(-?\d+(?:\.\d+)?(?:E-?\d+)?)");
+        private static readonly Regex DoubleRegex = new Regex(@"(-?\d+(?:\.\d+)?(?:E-?\d+)?)");
 
         public object Convert(object[] values, Type targetType, object parameter, CultureInfo culture)
         {
@@ -30,7 +25,7 @@ namespace DigitTrimmer
                                ? 1
                                : double.Parse((string)values[2], CultureInfo.InvariantCulture);
 
-            string replace = _doubleRegex.Replace(s, m =>
+            string replace = DoubleRegex.Replace(s, m =>
                 {
                     double d = double.Parse(m.Value, CultureInfo.InvariantCulture);
                     d *= scale;
@@ -39,7 +34,7 @@ namespace DigitTrimmer
             return replace;
         }
 
-        public object[] ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
+        object[] IMultiValueConverter.ConvertBack(object value, Type[] targetTypes, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }

@@ -10,11 +10,11 @@
             <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Horizontal">
                     <Label>Number of digits</Label>
-                    <TextBox x:Name="NumberOfDigitsTb" Width="20"></TextBox>
+                    <TextBox x:Name="NumberOfDigitsTb" Width="20" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <Label>Scalefactor</Label>
-                    <TextBox x:Name="ScaleFactorTb" Width="20"></TextBox>
+                    <TextBox x:Name="ScaleFactorTb" Width="20" />
                 </StackPanel>
             </StackPanel>
         </ToolBarPanel>
@@ -24,7 +24,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <GroupBox Header="In">
-                <TextBox x:Name="InTb"></TextBox>
+                <TextBox x:Name="InTb" />
             </GroupBox>
             <GroupBox Header="Out" Grid.Row="1">
                 <TextBox x:Name="OutTb" IsReadOnly="True">
@@ -41,3 +41,10 @@
     </DockPanel>
 
 </Window>
+
+
+
+
+
+
+

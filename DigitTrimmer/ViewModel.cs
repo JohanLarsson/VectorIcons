@@ -2,10 +2,7 @@
 {
     using System;
     using System.ComponentModel;
-    using System.Globalization;
-    using System.Linq;
     using System.Runtime.CompilerServices;
-    using System.Windows.Media;
     using JetBrains.Annotations;
 
     public class ViewModel : INotifyPropertyChanged
@@ -14,13 +11,16 @@
         private string output;
         private int digits;
         private bool shiftToOrigin;
-        private double size;
+        private double? size;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public string Input
         {
-            get { return this.input; }
+            get
+            {
+                return this.input;
+            }
 
             set
             {
@@ -35,11 +35,14 @@
             }
         }
 
-        public string Output => GetOutput();
+        public string Output => this.GetOutput();
 
         public int Digits
         {
-            get { return this.digits; }
+            get
+            {
+                return this.digits;
+            }
 
             set
             {
@@ -56,7 +59,10 @@
 
         public bool ShiftToOrigin
         {
-            get { return this.shiftToOrigin; }
+            get
+            {
+                return this.shiftToOrigin;
+            }
 
             set
             {
@@ -71,9 +77,12 @@
             }
         }
 
-        public double Size
+        public double? Size
         {
-            get { return this.size; }
+            get
+            {
+                return this.size;
+            }
 
             set
             {
@@ -103,12 +112,18 @@
 
             try
             {
-                return TextConverter.Convert(this.input, this.digits, 1);
-                var tokens = Parser.GetTokens(this.input).ToArray();
+                var text = this.input;
+                if (this.shiftToOrigin)
+                {
+                    text = GeometryConverter.ShiftToOrigin(text);
+                }
 
-                return "";
-                //var result = geometry.ToString(CultureInfo.InvariantCulture);
-                //return result;
+                if (this.size != null)
+                {
+                    text = GeometryConverter.WithSize(text, this.size.Value);
+                }
+
+                return GeometryConverter.RoundDigits(text, this.digits);
             }
             catch (Exception)
             {

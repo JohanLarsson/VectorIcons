@@ -1,42 +1,50 @@
 ﻿<Window x:Class="DigitTrimmer.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:digitTrimmer="clr-namespace:DigitTrimmer"
-        Title="MainWindow" Height="350" Width="525">
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:digitTrimmer="clr-namespace:DigitTrimmer"
+        Title="MainWindow"
+        Width="525"
+        Height="350">
+    <Window.DataContext>
+        <digitTrimmer:ViewModel />
+    </Window.DataContext>
     <DockPanel>
         <ToolBarPanel DockPanel.Dock="Top">
             <StackPanel Orientation="Horizontal">
                 <StackPanel Orientation="Horizontal">
-                    <Label>Number of digits</Label>
-                    <TextBox x:Name="NumberOfDigitsTb" Width="20" />
+                    <TextBlock>Number of digits</TextBlock>
+                    <TextBox Width="20" Text="{Binding Digits}" />
                 </StackPanel>
                 <StackPanel Orientation="Horizontal">
-                    <Label>Scalefactor</Label>
-                    <TextBox x:Name="ScaleFactorTb" Width="20" />
+                    <TextBlock>Size</TextBlock>
+                    <TextBox x:Name="ScaleFactorTb"
+                             Width="20"
+                             Text="{Binding Size,
+                                            TargetNullValue=''}" />
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock>Shift to origin</TextBlock>
+                    <CheckBox IsChecked="{Binding ShiftToOrigin}" />
                 </StackPanel>
             </StackPanel>
         </ToolBarPanel>
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <GroupBox Header="In">
-                <TextBox x:Name="InTb" />
+                <TextBox x:Name="InTb" Text="{Binding Input, UpdateSourceTrigger=PropertyChanged}" />
             </GroupBox>
-            <GroupBox Header="Out" Grid.Row="1">
-                <TextBox x:Name="OutTb" IsReadOnly="True">
-                    <TextBox.Text>
-                        <MultiBinding Converter="{x:Static digitTrimmer:TextConverter.Default}">
-                            <Binding ElementName="InTb" Path="Text"/>
-                            <Binding ElementName="NumberOfDigitsTb" Path="Text"/>
-                            <Binding ElementName="ScaleFactorTb" Path="Text"/>
-                        </MultiBinding>
-                    </TextBox.Text>
-                </TextBox>
+            <GroupBox Grid.Row="1" Header="Out">
+                <TextBox x:Name="OutTb"
+                         IsReadOnly="True"
+                         Text="{Binding Output,
+                                        Mode=OneWay,
+                                        UpdateSourceTrigger=PropertyChanged}" />
             </GroupBox>
         </Grid>
     </DockPanel>
-
 </Window>
 
 

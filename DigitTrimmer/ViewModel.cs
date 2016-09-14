@@ -8,7 +8,6 @@
     public class ViewModel : INotifyPropertyChanged
     {
         private string input;
-        private string output;
         private int digits;
         private bool shiftToOrigin;
         private double? size;
